@@ -1,0 +1,69 @@
+USE CONTEXT
+
+    es un API de REACT para poder manejar el estado de una manera muy similar a lo qeu haria RIDUX, solo qeu mas simple.
+
+    ejemplo: tendremos una lista de usuarios que traeremos desde una APIs, y una interfaz que tendra el esatdo de selecionado o no.
+
+    => axio npm: nos permite hacer peticiones a otros servidores y nos evita usar promesas de javascript.
+
+    => boostrap npm: para estilizar mejor nuestra aplicacion
+
+    => reqresin: nos brinda lagunos datos de ejemplo como json placeholder, json server o sitios similares lo qeu hacen es crear un ApIs falsa donde te va a dar datos de ejemplo:
+        (https://reqres.in/api/users) y me birnda un JSON CON DATOSDE usuarios
+    
+
+    PASO A PASO PROYECTO USERS
+
+        1- traer los datos, se puede usar axio, pero algo muy importante de porqeu usar useContext y biblioteca de uso de estados, es porque a medida que vamos una aplicacion de react, vamos a tener un componente que quizas este dentro de otro componente, al qeu esta dentro se le conoce como componente hijo y al que lo tiene dentrocomo componente padre.
+
+        para pasar datos del padre al hijo se utilizan los PROPS, peroq eu pasa cuando hay un componente dentro de otro, dentro de otro, dentro de otro y que el dato del componente hijo lo queiren pasar a otro componente hijo qeu no esta relacionado.
+
+        alli es donde viene el asunto ya que el componente padre es el qeu tiene el estado y los hijos solo consumen los datos del padre, y entra mas grande le componente mas complejo el asunto.
+
+        una de las soluciones e stener el estado en un solo lugar, para cuando tenga el problema menionado no haya ningun lio porque el esatdo esta por aparter sin importar la jerarquia que tengas, podras aser el consumo de datos sin problemas.
+
+        para eso se utilizando bibliotecas como RIDUX, MOBEX en este caso REACT ya tiene un biblioteca o funcionalidad para lograr que nuestro estado este en un solo lugar y es lo qeu se conoce como CONTEXT.
+
+        2- cramos una estrutura de carpetas organizadas para una mejor estructura de nuestro proeycto:
+            
+            => components: 
+                - prifile.jsx
+                - users-list.jsx
+
+            => context:
+                - users/
+                - typesjsx
+
+        3- Importamos nuestros componentes en el archivo app.jsx
+
+        4- contex, es como un esatdo qeu va a estar ahi y que podremos consumir en nuestros componentes, y en esa carpeta creamos 3 archivos
+
+            - userContext
+            - userreducer: es una alternativa a useState.
+            - userState: nuetsra definicion del estado y las funciones que van a alterar ese estado.
+
+        tambien importamos el archivo userreducer como una de las variable sde la funcion useReducer.
+
+        con eso ya tenemos el estado definido, las funcinones que van a alterar ese estado , ahora como empiezo a unir todo eso.
+
+        5- retornar un componente con createContext y lo guardamos en una variable esto lo hacemos en el archuivo de contex, esto va a servir para poder separar este estado de otros qeu podriamos tener. luego volvemos a nuestro comonente UserState y retornamos ese componente userContext, con esto le indicamo que todos lo ocmponente dentro del UserContext van a poder acceder al estado componente de estado que hemos creado. no sin antes agregarle .PRovider y agragarle parametros a la funicon inicial y definir que vamos a pasarle a los componentes hijos con props.children.
+
+        6- le pasamos los datos a los qeu qeuremos qeu accedan los hijos con el atrbuto value={} qeu nos brinda el .Providier
+
+        7- generamos la logica de la funciones get, le agregamos async a la funicones para poder usar await y axios y con get ponemos la url y esto lo guardamos en un variables, tenga en cuneta que hay qeu instalar previamente axios para npm
+
+        8- iniciamos a utilizar los componentes, importamos el UserState en el archivo app, y llamamos los componentes dentor del componente UserState.
+
+        9- vamos al componente user list y lugar de imprimir un texto manual, vamos a mostrar una lista de usuarios, para eos llamamos el useEffect, pero ante como necesitamos acceder alm contexto qeu creamos hacemos la importacion y llamamos nuetsro contexto y los datos qeu qeuremops de le los guardamos en una variable.
+
+        10- actualizamos nuetsro estado d elas variables, primeor, y asi los datos qeu esta recibiendo la API llenarlos en las vbaribles user y seleted user, y pueda utilizarse, eso lo hacemos el reducer ejecutando el metodo dispath
+
+        11- en el archivo tyope vamos a defini una lista de funciones qeu podremos ejecutar.
+
+        12- en el archivo userReduce vamos a definir que cuando se ejecutenj los cnombre de las funciones guardadas en type qeu qeuremos qeu haga, desde aca actualizamos los datos del arreglo users vacio que tenemos en useState.
+
+        13- vamos a poder a utilizar nuetsro users inicial, modificando nuetsro useEffct podemos mirar el estado inicial de nuestra varioable users y podemos incluso agregarle dependencia para que nos lo actualice 
+
+        14- importamos la libreri aboostrap, primero la instalamos y estilamos un pooco y mostarmos valores en etiquetas recorriendo arrays.
+
+        15- creamos condicional para mostar si el id selecionado exite y si no no se muetsre.
