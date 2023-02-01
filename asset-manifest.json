@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/select-users/static/css/main.c2cab247.css",
+    "main.js": "/select-users/static/js/main.ea028b87.js",
+    "index.html": "/select-users/index.html",
+    "main.c2cab247.css.map": "/select-users/static/css/main.c2cab247.css.map",
+    "main.ea028b87.js.map": "/select-users/static/js/main.ea028b87.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c2cab247.css",
+    "static/js/main.ea028b87.js"
+  ]
+}
