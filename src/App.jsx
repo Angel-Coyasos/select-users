@@ -24,7 +24,7 @@ function App() {
                     <div className="col-md-7">
                     <UserList />
                     </div>
-                    <div className="col-md-5">
+                    <div className="col-md-5 align-self-center">
                     <Profile/>
                     </div>
                 </div>
