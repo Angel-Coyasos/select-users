@@ -67,3 +67,18 @@ USE CONTEXT
         14- importamos la libreri aboostrap, primero la instalamos y estilamos un pooco y mostarmos valores en etiquetas recorriendo arrays.
 
         15- creamos condicional para mostar si el id selecionado exite y si no no se muetsre.
+
+    
+    DEPLOY EN PRODUCIOIN GIT hub
+    1- gh page installacion
+        npm install gh-pages --save-dev
+
+    2- agregamos comandos de deploy en el archivo packge.json en el arreglo scrpt
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
+
+    3- configuracion de git page con create app react agregamos url del respositorio en git hub con el siguient efomrato
+        "homepage": "https://myusername.github.io/my-app",
+
+    4- ejecuitamos le comando run deploy que tambien correra nuestro comando predeploy
+        npm run deploy
